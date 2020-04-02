@@ -8,3 +8,6 @@ Bài tập lớn môn C Advanced kỳ 20192
 - Thiều Ngọc Hiền Kiệt    
 - Nguyễn Anh Đức	    
 - Phạm Công Minh
+
+## Hệ điều hành
+- Ubuntu
