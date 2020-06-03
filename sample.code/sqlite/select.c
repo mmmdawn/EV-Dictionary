@@ -1,4 +1,4 @@
-#include "../../sqlite/sqlite3.h"
+#include "../../mylib/sqlite3.h"
 
 #include <stdio.h>
 
@@ -15,7 +15,7 @@ int callback(void *NotUsed, int argc, char **argv,
 int main(void) {
   sqlite3 *db;
   char *err_msg = 0;
-  int rc = sqlite3_open("/home/boong/EV-Dictionary/SQLite_database/dictionary.db", &db);
+  int rc = sqlite3_open("../..//SQLite_database/dictionary.db", &db);
   if (rc != SQLITE_OK) {
     fprintf(stderr, "Cannot open database: %s\n",
         sqlite3_errmsg(db));
