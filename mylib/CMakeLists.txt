@@ -1,4 +1,4 @@
-project(sqlite)
+project(mylib)
 
 add_library(sqlite STATIC sqlite3.c)
 # AUX_SOURCE_DIRECTORY(./ SQLITE_SRC)
