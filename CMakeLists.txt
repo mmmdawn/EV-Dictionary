@@ -16,3 +16,5 @@ message(STATUS "Include: ${GTK3_INCLUDE_DIRS}\n LIB_DIR: ${GTK3_LIBRARY_DIRS} \n
 
 add_executable(gtk testgtk/testgtk.c)
 target_link_libraries(gtk ${GTK3_LIBRARIES} sqlite pthread dl )
+add_executable(gtk2 testgtk/testgtk2.c)
+target_link_libraries(gtk2 ${GTK3_LIBRARIES} sqlite pthread dl )
