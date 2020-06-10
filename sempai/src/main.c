@@ -24,7 +24,7 @@ void findwordmean(char *word);
 
 void open_book()
 {
-    book=btopn("AnhViet.dat",0,0);
+    book=btopn("/home/dawn/EV-Dictionary/sempai/AnhViet.dat",0,0);
 }
 
 void set_textview_text(char * text) {
@@ -179,7 +179,7 @@ void press_them_tu()
     GtkBuilder      *builder;
     
     builder = gtk_builder_new();
-    gtk_builder_add_from_file (builder, "glade/window_main.glade", NULL);
+    gtk_builder_add_from_file (builder, "/home/dawn/EV-Dictionary/sempai/glade/window_main.glade", NULL);
     
     window_them_tu = GTK_WIDGET(gtk_builder_get_object(builder, "window1"));
     gtk_builder_connect_signals(builder, NULL);
@@ -215,7 +215,7 @@ void press_sua_tu()
     char word[40];
 
     builder = gtk_builder_new();
-    gtk_builder_add_from_file (builder, "glade/window_main.glade", NULL);
+    gtk_builder_add_from_file (builder, "/home/dawn/EV-Dictionary/sempai/glade/window_main.glade", NULL);
     
     window_sua_tu = GTK_WIDGET(gtk_builder_get_object(builder, "window2"));
     gtk_builder_connect_signals(builder, NULL);
@@ -260,7 +260,7 @@ int main(int argc, char *argv[])
     gtk_init(&argc, &argv);
 
     builder = gtk_builder_new();
-    gtk_builder_add_from_file (builder, "glade/window_main.glade", NULL);
+    gtk_builder_add_from_file (builder, "/home/dawn/EV-Dictionary/sempai/glade/window_main.glade", NULL);
 
     window = GTK_WIDGET(gtk_builder_get_object(builder, "window_main"));
     gtk_builder_connect_signals(builder, NULL);
