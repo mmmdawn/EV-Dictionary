@@ -113,7 +113,7 @@ int main(int argc, char** argv) {
 
    gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(list), FALSE);
 
-   vbox = gtk_vbox_new(FALSE, 0);
+   vbox = gtk_box_new(FALSE, 0);
 
    gtk_box_pack_start(GTK_BOX(vbox), list, TRUE, TRUE, 5);
 
