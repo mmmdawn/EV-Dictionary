@@ -86,8 +86,8 @@ void on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data)
             word[x+1]='\0';
             flag=0;
             gtk_list_store_clear(list);
-            if(sai!=0)
-                kiem_tra_tu(word);
+         //   if(sai!=0)
+          //      kiem_tra_tu(word);
         }   
     }
     else
@@ -99,13 +99,13 @@ void on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data)
             flag=0;
             sai=1;
             gtk_list_store_clear(list);
-            if(strlen(word) <= strlen(suggetword))
-            kiem_tra_tu(word);  
+          //  if(strlen(word) <= strlen(suggetword))
+           // kiem_tra_tu(word);  
         } 
     }
 }
 
-void kiem_tra_tu(char *word1)
+/*  void kiem_tra_tu(char *word1)
 {
     int dai1,size,i,j,first=0,k=0,q=0;
     char listword[40],word[40],nghia[5000];
@@ -114,9 +114,9 @@ void kiem_tra_tu(char *word1)
     kd[1]='\0';
     dai1=strlen(word1);
     flag=1;
- //   btsel(book,kd,nghia,sizeof(char*),&size);
-   //     while(btseln(book,word,nghia,5000,&size)==0 )
-         /*   {
+    btsel(book,kd,nghia,sizeof(char*),&size);
+        while(btseln(book,word,nghia,5000,&size)==0 )
+            {
 
                 i=0;
                 j=0;
@@ -149,9 +149,9 @@ void kiem_tra_tu(char *word1)
                     k++;
                     if(flag==0 || k == 15) break;
                 }
-            } */
+            } 
 }
-
+*/
 void Show_message(GtkWidget * parent , GtkMessageType type,  char * mms, char * content) 
 {
     GtkWidget *mdialog;
@@ -200,7 +200,7 @@ void press_sua_tu()
     char word[40];
 
     builder = gtk_builder_new();
-    gtk_builder_add_from_file (builder, "/home/dawn/EV-Dictionary/glade/window.glade", NULL);
+    gtk_builder_add_from_file (builder, "/home/boong/EV-Dictionary/glade/window.glade", NULL);
     
     window_sua_tu = GTK_WIDGET(gtk_builder_get_object(builder, "window2"));
     gtk_builder_connect_signals(builder, NULL);
@@ -278,7 +278,7 @@ int callback_addcheck(void *Notused, int argc, char **argv, char **azColName) {
 
 int main(int argc, char *argv[])
 {
-    sqlite3_open("/home/dawn/EV-Dictionary/SQLite_database/dictionary.db", &db);
+    sqlite3_open("/home/boong/EV-Dictionary/SQLite_database/dictionary.db", &db);
     
     GtkBuilder *builder;
     GtkEntryCompletion *complete;
@@ -286,7 +286,7 @@ int main(int argc, char *argv[])
     gtk_init(&argc, &argv);
 
     builder = gtk_builder_new();
-    gtk_builder_add_from_file (builder, "/home/dawn/EV-Dictionary/glade/window.glade", NULL);
+    gtk_builder_add_from_file (builder, "/home/boong/EV-Dictionary/glade/window.glade", NULL);
 
     window = GTK_WIDGET(gtk_builder_get_object(builder, "window_main"));
     gtk_builder_connect_signals(builder, NULL);

@@ -5,12 +5,18 @@
 #include <ctype.h>
 #include <stdlib.h>
 char* trim(char* token);
+int check=0;
+int callback(void *NotUsed, int argc, char **argv, char **azColName) {
+  NotUsed = 0;
+  if ( argc > 0) check=1 ;
+  return 0;
+}
 
 int main(int argc, char const *argv[])
 {
   sqlite3 *db;
   char *err_msg = 0;
-  int rc = sqlite3_open("dictionary.db", &db);
+  int rc = sqlite3_open("dictionary_test.db", &db);
   if (rc != SQLITE_OK) {
     fprintf(stderr, "Cannot open database: %s\n", sqlite3_errmsg(db));
     sqlite3_close(db);
@@ -32,9 +38,13 @@ int main(int argc, char const *argv[])
   while (!feof(fptr)){
     fscanf(fptr, "%[^/\n]", temp_kword);
     fscanf(fptr, "%[^@]", temp_meaning);
+    check=0;
+    sprintf(sql, "SELECT * FROM Dictionary WHERE key_word = \"%s\" ;", (trim(temp_kword))+1 );
+    rc = sqlite3_exec(db, sql, callback, 0, &err_msg);
+    if (check==0) {
     sprintf(sql, "INSERT INTO Dictionary VALUES(\"%s\",\"%s\");", (trim(temp_kword))+1, trim(temp_meaning));
-    
     rc = sqlite3_exec(db, sql, 0, 0, &err_msg);
+    }
   }
 
   if (rc != SQLITE_OK ) {
