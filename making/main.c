@@ -1,7 +1,6 @@
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 #include <string.h>
-
 #include "../mylib/sqlite3.h"
 
 GtkWidget *textview1,*textview2,*textview3,*textview4;
@@ -16,13 +15,11 @@ sqlite3 *db;
 char *err_msg = 0;
 char sql[10000];
 int check=0;
-
+char *exist; 
 char historytext[5000];
-char suggetword[40];
-int flag,sai=1;
 
 void on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data);
-void kiem_tra_tu(char *word1);
+void kiem_tra_tu(char *word);
 void findwordmean(char *word);
 
 
@@ -63,15 +60,19 @@ void clicked_search()
 
 void findwordmean(char *word)
 {
+  exist = NULL;
   sprintf(sql,"SELECT * FROM Dictionary WHERE key_word = \"%s\" ;" ,word);
   sqlite3_exec(db, sql, callback_search, 0, &err_msg);
+  if ( exist == NULL )
+     set_textview_text("\nRất tiếc, từ này hiện không có trong từ điển."
+                             "\nNhấn nút \"Thêm từ\" để bổ sung vào từ điển.");
 }
 void on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data)
 {
     char word[40];
     int x;
     strcpy(word, gtk_entry_get_text(GTK_ENTRY(searchentry)));
-    x=strlen(word); if(x==0) sai=1;
+    x=strlen(word);
     if (event->keyval != GDK_KEY_BackSpace)
     {
         if(event->keyval == GDK_KEY_KP_Enter)
@@ -99,8 +100,6 @@ void on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data)
 void kiem_tra_tu(char *word)
 {
     sprintf(sql,"SELECT * FROM Dictionary WHERE INSTR(key_word,\"%s\") = 1 ;" ,word);
-    sqlite3_exec(db, sql, callback_suggest, 0, &err_msg);
-    sprintf(sql,"SELECT * FROM Dictionary WHERE INSTR(key_word,\"%s\") > 1 ;" ,word);
     sqlite3_exec(db, sql, callback_suggest, 0, &err_msg);
 }
 
@@ -183,6 +182,14 @@ void clicked_cap_nhat_sua_tu()
     gtk_text_buffer_get_start_iter (gtk_text_view_get_buffer(GTK_TEXT_VIEW(textview4)), &st_iter);
     gtk_text_buffer_get_end_iter (gtk_text_view_get_buffer(GTK_TEXT_VIEW(textview4)), &ed_iter);
     char * nghia =  gtk_text_buffer_get_text(gtk_text_view_get_buffer(GTK_TEXT_VIEW(textview4)), &st_iter, &ed_iter, FALSE);
+    exist = NULL;
+    sprintf(sql,"SELECT * FROM Dictionary WHERE key_word = \"%s\" ;" ,word);
+    sqlite3_exec(db, sql, callback_search, 0, &err_msg);
+    if ( exist == NULL ) {
+       Show_message(window_them_tu, GTK_MESSAGE_ERROR, "Xảy ra lỗi!", "Không có từ này trong từ điển.");
+       gtk_widget_destroy(window_sua_tu);
+       return;
+    }
     sprintf(sql, "UPDATE Dictionary SET meaning = \"%s\" WHERE key_word = \"%s\" ;", nghia, word);
     sqlite3_exec(db, sql, 0, 0, &err_msg);
     Show_message(window_sua_tu, GTK_MESSAGE_INFO, "Thành công !", "Cập nhật từ thành công.");
@@ -201,29 +208,22 @@ void press_xoa_tu()
 
 int callback_suggest(void *Notused, int argc, char **argv, char **azColName) {
   Notused = 0;
-  //int count=0;
- // while(count<10||argv[0]!=NULL) {
-  gtk_list_store_append(list, &Iter);//them list moi
+  int count=0;
+  if (count<10) {
+  gtk_list_store_append(list, &Iter);
   gtk_list_store_set(list, &Iter, 0, argv[0], -1 );
- // count++;
- // }
+  count++;
+  }
   return 0;
 } 
 
 int callback_search(void *Notused, int argc, char **argv, char **azColName) {
     Notused = 0;
-    if( argc < 1  ) {
-           set_textview_text("\nRất tiếc, từ này hiện không có trong từ điển."
-                          "\n\nGợi ý:\t-Nhấn tab để tìm từ gần giống từ vừa nhập!"
-                          "\n\t\t-Hoặc nhấn nút \"Thêm từ\", để bổ sung vào từ điển.");
-        }
-    else            
-        {
-            set_textview_text(argv[1]);
-            strcat(historytext,argv[0]);
-            strcat(historytext,"\n");
-            set_history_textview_text(historytext);
-        }
+    exist = argv[0];
+    set_textview_text(argv[1]);
+    strcat(historytext,argv[0]);
+    strcat(historytext,"\n");
+    set_history_textview_text(historytext);
     return 0;
 }  
         
