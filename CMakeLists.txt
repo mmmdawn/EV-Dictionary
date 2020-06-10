@@ -5,7 +5,6 @@ include_directories(${CMAKE_SOURCE_DIR})
 
 add_subdirectory(mylib)
 add_subdirectory(sample.code)
-
 add_subdirectory(sempai/src/cmake-btree)
 
 find_package(PkgConfig REQUIRED)
