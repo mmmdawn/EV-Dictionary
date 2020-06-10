@@ -120,7 +120,7 @@ void press_them_tu()
     GtkBuilder *builder;
     
     builder = gtk_builder_new();
-    gtk_builder_add_from_file (builder, "/home/boong/EV-Dictionary/glade/window.glade", NULL);
+    gtk_builder_add_from_file (builder, "window.glade", NULL);
     
     window_them_tu = GTK_WIDGET(gtk_builder_get_object(builder, "window1"));
     gtk_builder_connect_signals(builder, NULL);
@@ -158,7 +158,7 @@ void press_sua_tu()
     char word[40];
 
     builder = gtk_builder_new();
-    gtk_builder_add_from_file (builder, "/home/boong/EV-Dictionary/making/window.glade", NULL);
+    gtk_builder_add_from_file (builder, "window.glade", NULL);
     
     window_sua_tu = GTK_WIDGET(gtk_builder_get_object(builder, "window2"));
     gtk_builder_connect_signals(builder, NULL);
@@ -215,7 +215,7 @@ int callback_suggest(void *Notused, int argc, char **argv, char **azColName) {
   count++;
   }
   return 0;
-} 
+}
 
 int callback_search(void *Notused, int argc, char **argv, char **azColName) {
     Notused = 0;
@@ -238,7 +238,7 @@ int callback_check(void *Notused, int argc, char **argv, char **azColName) {
 
 int main(int argc, char *argv[])
 {
-    sqlite3_open("/home/boong/EV-Dictionary/SQLite_database/dictionary.db", &db);
+    sqlite3_open("dictionary.db", &db);
     
     GtkBuilder *builder;
     GtkEntryCompletion *complete;
@@ -246,7 +246,7 @@ int main(int argc, char *argv[])
     gtk_init(&argc, &argv);
 
     builder = gtk_builder_new();
-    gtk_builder_add_from_file (builder, "/home/boong/EV-Dictionary/making/window.glade", NULL);
+    gtk_builder_add_from_file (builder, "window.glade", NULL);
 
     window = GTK_WIDGET(gtk_builder_get_object(builder, "window_main"));
     gtk_builder_connect_signals(builder, NULL);
@@ -256,7 +256,7 @@ int main(int argc, char *argv[])
     textview2 = GTK_WIDGET(gtk_builder_get_object(builder, "textview2"));
     searchentry=GTK_WIDGET(gtk_builder_get_object(builder, "searchentry1"));
 
-    // khoi taoj phan goi y tu
+    // khoi tao phan goi y tu
     complete = gtk_entry_completion_new();
     gtk_entry_completion_set_text_column(complete, 0);
     list = gtk_list_store_new(1, G_TYPE_STRING);
