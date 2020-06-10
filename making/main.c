@@ -203,7 +203,7 @@ void press_sua_tu()
     char word[40];
 
     builder = gtk_builder_new();
-    gtk_builder_add_from_file (builder, "glade/window_main.glade", NULL);
+    gtk_builder_add_from_file (builder, "/home/boong/EV-Dictionary/making/window.glade", NULL);
     
     window_sua_tu = GTK_WIDGET(gtk_builder_get_object(builder, "window2"));
     gtk_builder_connect_signals(builder, NULL);
@@ -250,7 +250,12 @@ int callback_insert(void *NotUsed, int argc, char **argv, char **azColName) {
 
 int callback_search(void *Notused, int argc, char **argv, char **azColName) {
     Notused = 0;
-    if( argc==0 ) {
+
+    for (int i = 0; i < argc; i++) {
+    printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+    }
+    printf("\n");
+    if( argc < 1  ) {
            set_textview_text("\nRất tiếc, từ này hiện không có trong từ điển."
                           "\n\nGợi ý:\t-Nhấn tab để tìm từ gần giống từ vừa nhập!"
                           "\n\t\t-Hoặc nhấn nút \"Thêm từ\", để bổ sung vào từ điển.");
@@ -274,7 +279,7 @@ int callback_addcheck(void *Notused, int argc, char **argv, char **azColName) {
 
 int main(int argc, char *argv[])
 {
-    sqlite3_open("../SQLite_database/dictionary.db", &db);
+    sqlite3_open("/home/boong/EV-Dictionary/SQLite_database/dictionary.db", &db);
     
     GtkBuilder *builder;
     GtkEntryCompletion *complete;
@@ -282,7 +287,7 @@ int main(int argc, char *argv[])
     gtk_init(&argc, &argv);
 
     builder = gtk_builder_new();
-    gtk_builder_add_from_file (builder, "glade/window_main.glade", NULL);
+    gtk_builder_add_from_file (builder, "/home/boong/EV-Dictionary/making/window.glade", NULL);
 
     window = GTK_WIDGET(gtk_builder_get_object(builder, "window_main"));
     gtk_builder_connect_signals(builder, NULL);

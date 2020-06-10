@@ -200,7 +200,7 @@ void press_sua_tu()
     char word[40];
 
     builder = gtk_builder_new();
-    gtk_builder_add_from_file (builder, "/home/dawn/EV-Dictionary/glade/window.glade", NULL);
+    gtk_builder_add_from_file (builder, "/home/boong/EV-Dictionary/glade/window.glade", NULL);
     
     window_sua_tu = GTK_WIDGET(gtk_builder_get_object(builder, "window2"));
     gtk_builder_connect_signals(builder, NULL);
@@ -278,7 +278,7 @@ int callback_addcheck(void *Notused, int argc, char **argv, char **azColName) {
 
 int main(int argc, char *argv[])
 {
-    sqlite3_open("/home/dawn/EV-Dictionary/SQLite_database/dictionary.db", &db);
+    sqlite3_open("/home/boong/EV-Dictionary/SQLite_database/dictionary.db", &db);
     
     GtkBuilder *builder;
     GtkEntryCompletion *complete;
@@ -286,7 +286,7 @@ int main(int argc, char *argv[])
     gtk_init(&argc, &argv);
 
     builder = gtk_builder_new();
-    gtk_builder_add_from_file (builder, "/home/dawn/EV-Dictionary/glade/window.glade", NULL);
+    gtk_builder_add_from_file (builder, "/home/boong/EV-Dictionary/glade/window.glade", NULL);
 
     window = GTK_WIDGET(gtk_builder_get_object(builder, "window_main"));
     gtk_builder_connect_signals(builder, NULL);

@@ -208,3 +208,7 @@
 - (Tech) ghi lại ngày trước
 @back end
 - (Tech) đầu sau, đoạn cuối
+@axis
+- nothingblabla
+@average
+- tung tung tung
