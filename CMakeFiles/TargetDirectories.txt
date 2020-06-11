@@ -1,6 +1,0 @@
-/home/dawn/EV-Dictionary/CMakeFiles/rebuild_cache.dir
-/home/dawn/EV-Dictionary/CMakeFiles/edit_cache.dir
-/home/dawn/EV-Dictionary/CMakeFiles/penguin_warriors.dir
-/home/dawn/EV-Dictionary/sqlite3/CMakeFiles/rebuild_cache.dir
-/home/dawn/EV-Dictionary/sqlite3/CMakeFiles/edit_cache.dir
-/home/dawn/EV-Dictionary/sqlite3/CMakeFiles/sqlite.dir
