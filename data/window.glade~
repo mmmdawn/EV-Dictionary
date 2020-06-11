@@ -17,7 +17,7 @@
             <property name="can_focus">False</property>
             <property name="margin_top">8</property>
             <property name="margin_bottom">8</property>
-            <property name="label" translatable="yes">     English - Vietnamese Dictionary</property>
+            <property name="label" translatable="yes"> English - Vietnamese Dictionary</property>
             <property name="justify">center</property>
             <attributes>
               <attribute name="weight" value="bold"/>
@@ -84,13 +84,13 @@ MEMBERS :
                 <property name="label" translatable="yes">
    
 
-     Phạm Công Minh
+      Phạm Công Minh
  
         Trần Hữu Bình
 
- Thiều Ngọc Hiền Kiệt
+  Thiều Ngọc Hiền Kiệt
 
-     Nguyễn Anh Đức  
+      Nguyễn Anh Đức  
 
 
 
@@ -111,7 +111,7 @@ MEMBERS :
                 <property name="valign">center</property>
                 <property name="margin_top">6</property>
                 <property name="margin_bottom">9</property>
-                <property name="label" translatable="yes"> Designed by Penguin Hedspi Warriors</property>
+                <property name="label" translatable="yes">    Designed by HEDSPI Penguin Warriors</property>
                 <property name="xalign">0</property>
               </object>
               <packing>
@@ -217,7 +217,7 @@ LECTURER :</property>
             <property name="height_request">37</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Thêm từ :
+            <property name="label" translatable="yes">  Thêm từ :
 </property>
           </object>
           <packing>
@@ -230,7 +230,7 @@ LECTURER :</property>
             <property name="height_request">29</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Nghĩa :</property>
+            <property name="label" translatable="yes">     Thêm nghĩa :</property>
           </object>
           <packing>
             <property name="y">71</property>
@@ -254,7 +254,7 @@ LECTURER :</property>
           </packing>
         </child>
         <child>
-          <object class="GtkTextView" id="textview3">
+          <object class="GtkTextView" id="textview_add">
             <property name="width_request">280</property>
             <property name="height_request">253</property>
             <property name="visible">True</property>
@@ -357,7 +357,7 @@ LECTURER :</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <child>
-          <object class="GtkTextView" id="textview4">
+          <object class="GtkTextView" id="textview_edit">
             <property name="width_request">278</property>
             <property name="height_request">260</property>
             <property name="visible">True</property>
@@ -378,7 +378,7 @@ LECTURER :</property>
             <property name="can_focus">False</property>
             <property name="margin_top">6</property>
             <property name="hexpand">True</property>
-            <property name="label" translatable="yes">Nghĩa :</property>
+            <property name="label" translatable="yes">Sửa nghĩa :</property>
           </object>
           <packing>
             <property name="y">55</property>
@@ -424,7 +424,7 @@ LECTURER :</property>
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Sửa từ :</property>
+                <property name="label" translatable="yes">   Sửa từ :</property>
               </object>
             </child>
           </object>
@@ -576,7 +576,7 @@ F3 :	    Delete          F6 :      About</property>
           </packing>
         </child>
         <child>
-          <object class="GtkSearchEntry" id="searchentry1">
+          <object class="GtkSearchEntry" id="searchentry">
             <property name="width_request">705</property>
             <property name="height_request">29</property>
             <property name="visible">True</property>
@@ -599,7 +599,7 @@ F3 :	    Delete          F6 :      About</property>
             <property name="label_xalign">0</property>
             <property name="shadow_type">none</property>
             <child>
-              <object class="GtkTextView" id="textview2">
+              <object class="GtkTextView" id="textview_history">
                 <property name="width_request">224</property>
                 <property name="height_request">430</property>
                 <property name="visible">True</property>
@@ -627,7 +627,7 @@ F3 :	    Delete          F6 :      About</property>
             <property name="can_focus">True</property>
             <property name="shadow_type">in</property>
             <child>
-              <object class="GtkTextView" id="textview1">
+              <object class="GtkTextView" id="textview_meaning">
                 <property name="width_request">435</property>
                 <property name="height_request">650</property>
                 <property name="visible">True</property>
