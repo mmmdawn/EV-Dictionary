@@ -4,6 +4,7 @@
 tmp/
 b/
 .ccls-cache/
+CMakeFiles/
 Makefile
 CMakeCache.txt
 cmake_install.cmake
