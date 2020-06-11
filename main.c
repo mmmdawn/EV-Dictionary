@@ -106,7 +106,7 @@ void enter_keyword(GtkWidget *widget, GdkEventKey *event, gpointer user_data)
 
     if (event->keyval != GDK_KEY_BackSpace)
     {
-        if(event->keyval == GDK_KEY_KP_Tab)
+        if(event->keyval == GDK_KEY_Tab)
             search_keyword(word);
         else
         {
