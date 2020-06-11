@@ -77,8 +77,6 @@ void press_search()
 
 void search_keyword(char *word)
 {
-  if ( strcmp(word,"") == 0 )
-     set_textview_text("Bạn chưa nhập gì !");
   exist = NULL;
   sprintf(sql,"SELECT * FROM Dictionary WHERE key_word = \"%s\" ;" ,word);
   sqlite3_exec(db, sql, callback_search, 0, &err_msg);
