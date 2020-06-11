@@ -218,7 +218,7 @@ void click_ok_edit()
     char * meaning =  gtk_text_buffer_get_text(gtk_text_view_get_buffer(GTK_TEXT_VIEW(textview_edit)), &st_iter, &ed_iter, FALSE);
     exist = NULL;
     sprintf(sql,"SELECT * FROM Dictionary WHERE key_word = \"%s\" ;" ,word);
-    sqlite3_exec(db, sql, callback_search, 0, &err_msg);
+    sqlite3_exec(db, sql, callback_check, 0, &err_msg);
     if ( exist == NULL ) {
        show_message(window_edit, GTK_MESSAGE_ERROR, "Thất bại !", "Không có từ này trong từ điển.");
        gtk_widget_destroy(window_edit);
