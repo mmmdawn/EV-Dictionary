@@ -12,5 +12,6 @@ link_directories(${GTK3_LIBRARY_DIRS})
 add_definitions(${GTK3_CFLAGS_OTHER} -rdynamic -no-pie -fexceptions -std=c99 -Wno-deprecated-declarations )
 message(STATUS "Include: ${GTK3_INCLUDE_DIRS}\n LIB_DIR: ${GTK3_LIBRARY_DIRS} \n CFLAGS_OTHERS: ${GTK3_CFLAGS_OTHER} \n LIBS: ${GTK3_LIBRARIES}")
 
-add_executable(penguin_warriors main.c)
-target_link_libraries(penguin_warriors ${GTK3_LIBRARIES} sqlite pthread dl)
+add_executable(Penguin_Dictionary main.c)
+target_link_libraries(Penguin_Dictionary ${GTK3_LIBRARIES} sqlite pthread dl)
+
