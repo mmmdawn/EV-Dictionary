@@ -1,1 +1,0 @@
-add_library(fdr STATIC dllist.c fields.c jrb.c jval.c)
