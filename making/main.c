@@ -262,8 +262,8 @@ int main(int argc, char *argv[])
     list = gtk_list_store_new(1, G_TYPE_STRING);
     gtk_entry_completion_set_model(complete, GTK_TREE_MODEL(list));
     gtk_entry_set_completion(GTK_ENTRY(searchentry), complete);
-    g_signal_connect (searchentry, "key_press_event", G_CALLBACK (on_key_press), NULL);
-    g_signal_connect(window, "destroy", G_CALLBACK (gtk_main_quit), NULL);
+    g_signal_connect (searchentry, "key_press_event", G_CALLBACK(on_key_press), NULL);
+    g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
     
     g_object_unref(builder);
 
