@@ -1,4 +1,4 @@
-# Install script for directory: /home/dawn/EV-Dictionary/sqlite3
+# Install script for directory: /home/hp/E/EV-Dictionary/sqlite3
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

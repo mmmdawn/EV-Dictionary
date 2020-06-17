@@ -81,7 +81,7 @@ void search_keyword(char *word)
   sprintf(sql,"SELECT * FROM Dictionary WHERE key_word = \"%s\" ;" ,word);
   sqlite3_exec(db, sql, callback_search, 0, &err_msg);
   if ( exist == NULL )
-     set_textview_text("Từ này hiện không có trong từ điển.\nẤn nút\"Thêm từ\" để bổ sung vào từ điển.");
+     set_textview_text("Từ này hiện không có trong từ điển.\nẤn nút\"Add\" để bổ sung vào từ điển.");
 }
 void enter_keyword(GtkWidget *widget, GdkEventKey *event, gpointer user_data)
 {
@@ -257,14 +257,14 @@ void click_ok_delete() {
     sprintf(sql,"SELECT * FROM Dictionary WHERE key_word = \"%s\" ;" ,word);
     sqlite3_exec(db, sql, callback_check, 0, &err_msg);
     if (exist == NULL) {
-        show_message(window_delete, GTK_MESSAGE_ERROR, "Thất bại !", "Không có từ này trong từ điển.");
+        show_message(window_delete, GTK_MESSAGE_ERROR, "Fail !", "Không có từ này trong từ điển.");
         gtk_widget_destroy(window_delete);
         return;
     }
     sprintf(sql,"DELETE FROM Dictionary WHERE key_word = \"%s\" ;", word);
     sqlite3_exec(db, sql, 0, 0, &err_msg);
-    show_message(window_delete, GTK_MESSAGE_ERROR, "Xóa từ", "Xóa từ thành công.");
-    set_textview_text("Bạn đã xóa từ này khỏi từ điển thành công.\n");
+    show_message(window_delete, GTK_MESSAGE_ERROR, "Xóa từ", "Success!.");
+    set_textview_text("Success!\n");
     gtk_widget_destroy(window_delete);
 }
 
@@ -347,9 +347,11 @@ int main(int argc, char *argv[])
     gtk_builder_connect_signals(builder, NULL);
 
 
-    GdkPixbuf *icon;
-    icon = create_pixbuf("data/penguin.jpg");
-    gtk_window_set_icon(GTK_WINDOW(window_main), icon);
+    GdkPixbuf *icon_1, *icon_2;
+    icon_1 = create_pixbuf("data/penguin.jpg");
+    icon_2 = create_pixbuf("/home/hp/E/EV-Dictionary/data/ocean.jpg");
+    gtk_window_set_icon(GTK_WINDOW(window_main), icon_2);
+    gtk_window_set_icon(GTK_WINDOW(window_main), icon_1);
 
 
     // khoi tao bien tuong tac

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/sqlite.dir/sqlite3.c.o"
-  "libsqlite.a"
   "libsqlite.pdb"
+  "libsqlite.a"
 )
 
 # Per-language clean rules from dependency scanning.

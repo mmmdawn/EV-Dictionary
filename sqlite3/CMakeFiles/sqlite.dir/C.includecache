@@ -6,17 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/home/dawn/EV-Dictionary/sqlite3/sqlite3.c
+/home/hp/E/EV-Dictionary/sqlite3/sqlite3.c
 config.h
-/home/dawn/EV-Dictionary/sqlite3/config.h
+/home/hp/E/EV-Dictionary/sqlite3/config.h
 vxWorks.h
 -
 pthread.h
 -
 mingw.h
-/home/dawn/EV-Dictionary/sqlite3/mingw.h
+/home/hp/E/EV-Dictionary/sqlite3/mingw.h
 _mingw.h
-/home/dawn/EV-Dictionary/sqlite3/_mingw.h
+/home/hp/E/EV-Dictionary/sqlite3/_mingw.h
 stdarg.h
 -
 stdint.h
@@ -54,7 +54,7 @@ malloc.h
 pthread.h
 -
 windows.h
-/home/dawn/EV-Dictionary/sqlite3/windows.h
+/home/hp/E/EV-Dictionary/sqlite3/windows.h
 sys/cygwin.h
 -
 errno.h
@@ -98,13 +98,13 @@ sys/statvfs.h
 dlfcn.h
 -
 sqlite_tcl.h
-/home/dawn/EV-Dictionary/sqlite3/sqlite_tcl.h
+/home/hp/E/EV-Dictionary/sqlite3/sqlite_tcl.h
 tcl.h
-/home/dawn/EV-Dictionary/sqlite3/tcl.h
+/home/hp/E/EV-Dictionary/sqlite3/tcl.h
 ctype.h
 -
 sqlite3rtree.h
-/home/dawn/EV-Dictionary/sqlite3/sqlite3rtree.h
+/home/hp/E/EV-Dictionary/sqlite3/sqlite3rtree.h
 ctype.h
 -
 unicode/utypes.h
